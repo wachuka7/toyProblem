@@ -1,18 +1,18 @@
-function checkSpeed(speed) {
+function checkSpeed() {
+    const speed = parseInt(prompt("Speed:"));
     const speedLimit = 70;
     const demeritPoints = Math.floor((speed-speedLimit)/5);
     const licenseSuspensionPoints = 12;
 
     if (speed < speedLimit) {
-        return "Ok";
+        return alert("Ok");
     } else {
         
         if (demeritPoints > licenseSuspensionPoints) {
-            return ("License suspended");
+            return alert("License suspended");
         } else {
-            return (demeritPoints);
+            return alert(demeritPoints);
         }
     }
 }
 checkSpeed();
-console.log(checkSpeed(135))
