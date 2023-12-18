@@ -60,12 +60,12 @@ function calculateNetSalary() {
 //nssfDeduction is 6% of the gross salary
     let nssfDeduction = grossSalary * 0.06;
     benefits=nssfDeduction;
-    //we get the taxable income by deducting the nhif and nssf
+    // get the taxable income by deducting the nhif and nssf
     taxableIncome= grossSalary- (nssfDeduction+nhifDeduction);
 
     let tax = 0;
     let taxRate = 0;
-
+//calculate tax according to the taxable income
     if (taxableIncome <= 24000) {
         taxRate = 0.1;
     } else if (taxableIncome <= 32333) {
@@ -81,12 +81,18 @@ function calculateNetSalary() {
     tax = taxableIncome* (taxRate);
 //calculation for gross salary 
     let netSalary = grossSalary - tax - nhifDeduction-nssfDeduction;
-
+//sending an alert to the user that shows 
+//Net Salary, 
+//Tax,
+//NHIF deductions,
+//NSSF deductions and 
+//Gross salary
+//All the items in 2 decimals
     alert("Net Salary: " + netSalary.toFixed(2) + " Ksh\n" +
           "Tax: " + tax.toFixed(2) + " Ksh\n" +
           "NHIF Deduction: " + nhifDeduction.toFixed(2) + " Ksh\n" +
           "NSSF Deduction: " + nssfDeduction.toFixed(2) + " Ksh\n" +
           "Gross Salary: " + grossSalary.toFixed(2) + " Ksh");
 }
-
+//calling the fuction for calculating the net salary
 calculateNetSalary();
