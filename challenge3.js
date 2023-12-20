@@ -53,9 +53,10 @@ function calculateNetSalary() {
         nhifDeduction = 1500;
     } else if (grossSalary <= 99999) {
         nhifDeduction = 1500;            
-   
-    } else {
+    } else if (grossSalary>= 100000) {
         nhifDeduction = 1700;
+    } else {
+        alert("Invalid Input");
     }
 //nssfDeduction is 6% of the gross salary
     let nssfDeduction = grossSalary * 0.06;
@@ -76,7 +77,11 @@ function calculateNetSalary() {
         taxRate = 0.325;
     } else {
         taxRate = 0.35;
+    } else if (taxableIncome >800000) {
+        taxRate= 0.35;
     }
+    else {
+        alert("Invalid Input");
 
     tax = taxableIncome* (taxRate);
 //calculation for gross salary 
